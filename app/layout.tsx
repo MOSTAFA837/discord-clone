@@ -1,10 +1,11 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/thenme-provider";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import ModalProvider from "@/components/providers/modal-provider";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -28,6 +29,8 @@ export default function RootLayout({
             storageKey="discord-clone"
             enableSystem
           >
+            <ModalProvider />
+
             {children}
           </ThemeProvider>
         </body>

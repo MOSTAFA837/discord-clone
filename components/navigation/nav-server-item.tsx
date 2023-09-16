@@ -41,7 +41,7 @@ export default function NavServerItem({ server }: Props) {
           className={cn(
             "relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded[16px] transition-all overflow-hidden",
             params?.serverId === server.id &&
-              "bg-white text-white rounded-[16xp]"
+              "bg-primary text-primary rounded-[16px]"
           )}
         >
           <Image fill src={server.imageUrl} alt="Channel" />
