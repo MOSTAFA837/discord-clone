@@ -30,7 +30,7 @@ export default function NavServerItem({ server }: Props) {
       >
         <div
           className={cn(
-            "absolute left-0 bg-white rounded-r-full transition-all w-[4px]",
+            "absolute left-0 bg-black dark:bg-white rounded-r-full transition-all w-[4px]",
             params?.serverId === server.id
               ? "h-[36px]"
               : "h-[8px] group-hover:h-[20px]"
