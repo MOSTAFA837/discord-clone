@@ -25,7 +25,7 @@ export default async function NavSidebar() {
   });
 
   return (
-    <div className="overflow-hidden space-y-4 flex flex-col items-center justify-between h-full text-primary w-full dark:bg-[#1e1f22] py-3">
+    <div className="overflow-hidden space-y-4 flex flex-col items-center justify-between h-full text-primary w-full bg-[#ddddddbd] dark:bg-[#1e1f22] py-3">
       <div>
         <NavAction />
 
