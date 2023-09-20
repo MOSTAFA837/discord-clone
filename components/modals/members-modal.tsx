@@ -75,6 +75,28 @@ export const MembersModal = () => {
     }
   };
 
+  const onKick = async (memberId: string) => {
+    try {
+      setLoadingId(memberId);
+
+      const url = qs.stringifyUrl({
+        url: `/api/members/${memberId}`,
+        query: {
+          serverId: server?.id,
+        },
+      });
+
+      const res = await axios.delete(url);
+
+      router.refresh();
+      open("members", { server: res.data });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoadingId("");
+    }
+  };
+
   return (
     <Dialog open={isModalOpen} onOpenChange={close}>
       <DialogContent className="dark:bg-[#505050] shadow-lg border-0 text-black dark:text-white overflow-hidden">
@@ -150,7 +172,7 @@ export const MembersModal = () => {
 
                         <DropdownMenuSeparator className="bg-[#d4d4d4] dark:bg-[#464646]" />
 
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => onKick(member.id)}>
                           <Gavel className="h-4 w-4 mr-2" />
                           Kick
                         </DropdownMenuItem>
