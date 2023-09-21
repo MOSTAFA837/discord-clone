@@ -54,13 +54,16 @@ model Member {
   role MemberRole @default(GUEST)
 
   profileId String @db.Text
-  profile Profile @relation(fields: [profileId], references: [id])
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   serverId String
-  server Server @relation(fields: [serverId], references: [id])
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
 }
 
 enum ChannelType {
@@ -75,11 +78,14 @@ model Channel {
   type ChannelType @default(TEXT)
 
   profileId String
-  profile Profile @relation(fields: [profileId], references: [id])
+  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   serverId String
-  server Server @relation(fields: [serverId], references: [id])
+  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([profileId])
+  @@index([serverId])
 }

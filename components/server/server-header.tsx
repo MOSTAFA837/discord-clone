@@ -88,14 +88,20 @@ export default function ServerHeader({
         )}
 
         {isAdmin && (
-          <DropdownMenuItem className="px3 py-2 text-sm cursor-pointer text-rose-500">
+          <DropdownMenuItem
+            onClick={() => open("deleteServer", { server })}
+            className="px3 py-2 text-sm cursor-pointer text-rose-500"
+          >
             Delete Server
             <Trash className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
         )}
 
         {!isAdmin && (
-          <DropdownMenuItem className="px3 py-2 text-sm cursor-pointer text-rose-500">
+          <DropdownMenuItem
+            onClick={() => open("leaveServer", { server })}
+            className="px3 py-2 text-sm cursor-pointer text-rose-500"
+          >
             Leave Server
             <LogOut className="h-4 w-4 ml-auto" />
           </DropdownMenuItem>
