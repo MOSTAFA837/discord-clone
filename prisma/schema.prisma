@@ -121,15 +121,15 @@ model Message {
 model Conversation {
   id String @id @default(uuid()) 
 
-  memerOneId String
-  memberOne Member @relation("MemberOne", fields: [memerOneId], references: [id], onDelete: Cascade)
+  memberOneId String
+  memberOne Member @relation("MemberOne", fields: [memberOneId], references: [id], onDelete: Cascade)
 
-  memerTwoId String
-  memberTwo Member @relation("MemberTwo", fields: [memerTwoId], references: [id], onDelete: Cascade)
+  memberTwoId String
+  memberTwo Member @relation("MemberTwo", fields: [memberTwoId], references: [id], onDelete: Cascade)
 
   directMessages DirectMessage[]
 
-  @@unique([memerOneId, memerTwoId])
+  @@unique([memberOneId, memberTwoId])
 }
 
 model DirectMessage {
