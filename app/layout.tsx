@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/thenme-provider";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import ModalProvider from "@/components/providers/modal-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -29,9 +30,11 @@ export default function RootLayout({
             storageKey="discord-clone"
             enableSystem
           >
-            <ModalProvider />
+            <SocketProvider>
+              <ModalProvider />
 
-            {children}
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
