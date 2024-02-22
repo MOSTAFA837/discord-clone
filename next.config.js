@@ -7,6 +7,14 @@ const nextConfig = {
     DATABASE_URL:
       "postgresql://postgres:admin@localhost:5432/discord-clone?schema=public",
   },
+  webpack: (config) => {
+    config.externals.push({
+      "utf-8-validate": "commonjs utf-8-validate",
+      bufferutil: "commonjs bufferutil",
+    });
+
+    return config;
+  },
 };
 
 module.exports = nextConfig;
